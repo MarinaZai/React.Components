@@ -7,8 +7,12 @@ export class Header extends React.Component {
     return (
       <>
         <div className={styles.header}>
-          <Link to="/">Main page</Link>
-          <Link to="/about">About us</Link>
+          <Link to="/" className={styles.linkPage}>
+            Main page
+          </Link>
+          <Link to="/about" className={styles.linkPage}>
+            About us
+          </Link>
         </div>
       </>
     );

@@ -1,22 +1,24 @@
 import React from "react";
 import styles from "./styles.module.css";
 export class SearchBar extends React.Component {
+  state = {
+    searchInput: "",
+  };
+  handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    event.preventDefault();
+    const input = event.target.value;
+    this.setState(() => input);
+    localStorage.setItem("searchInput", input);
+  };
   render() {
-    localStorage.setItem("searchInput", "");
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-      e.preventDefault();
-      localStorage.setItem("searchInput", `${e.target.value}`);
-    };
-
     return (
       <div className={styles.search}>
         <input
           className={styles.searchInput}
           type="search"
           placeholder="Search here"
-          onChange={handleChange}
-          //value={saveInput}
+          onChange={this.handleChange}
+          //value={this.state.searchInput}
         />
       </div>
     );

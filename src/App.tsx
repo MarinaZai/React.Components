@@ -12,7 +12,7 @@ function App() {
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/about" element={<AboutUs />} />
-        <Route path="/404" element={<ErrorPage />} />
+        <Route path="/*" element={<ErrorPage />} />
       </Routes>
     </div>
   );

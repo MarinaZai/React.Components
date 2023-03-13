@@ -5,6 +5,11 @@ import styles from "./styles.module.css";
 import React from "react";
 
 export class MainPage extends React.Component {
+  componentDidMount() {
+    const searchInput = localStorage.getItem("searchInput");
+    this.setState(() => searchInput);
+    console.log(searchInput);
+  }
   /*   const saveInput: string | null = localStorage.getItem("searchInput");
   if (saveInput)
     if (saveInput.length > 0) {
