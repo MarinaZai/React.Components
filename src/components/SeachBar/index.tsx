@@ -1,19 +1,27 @@
 import React from "react";
 import styles from "./styles.module.css";
+
 export class SearchBar extends React.Component {
-  componentDidMount() {
-    const searchInput = localStorage.getItem("searchInput");
-    this.setState(() => searchInput);
-  }
   state = {
     searchInput: "",
   };
+
+  componentDidMount() {
+    const searchInput = localStorage.getItem("searchInput");
+    if (searchInput) {
+      this.setState({ searchInput });
+    }
+  }
+
+  componentWillUnmount() {
+    localStorage.setItem("searchInput", this.state.searchInput);
+  }
+
   handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    event.preventDefault();
     const input = event.target.value;
-    this.setState(() => input);
-    localStorage.setItem("searchInput", input);
+    this.setState({ searchInput: input });
   };
+
   render() {
     return (
       <div className={styles.search}>
@@ -22,7 +30,7 @@ export class SearchBar extends React.Component {
           type="search"
           placeholder="Search here"
           onChange={this.handleChange}
-          //value={this.state.searchInput}
+          value={this.state.searchInput}
         />
       </div>
     );
