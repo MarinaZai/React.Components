@@ -1,4 +1,5 @@
 import * as React from "react";
+import { NavLink } from "react-router-dom";
 import { Link } from "react-router-dom";
 import styles from "./styles.module.css";
 
@@ -7,12 +8,32 @@ export class Header extends React.Component {
     return (
       <>
         <div className={styles.header}>
-          <Link to="/" className={styles.linkPage}>
+          <NavLink
+            to="/"
+            style={({ isActive }) =>
+              isActive
+                ? {
+                    color: "green",
+                  }
+                : {}
+            }
+            className={styles.linkPage}
+          >
             Main page
-          </Link>
-          <Link to="/about" className={styles.linkPage}>
+          </NavLink>
+          <NavLink
+            to="/about"
+            className={styles.linkPage}
+            style={({ isActive }) =>
+              isActive
+                ? {
+                    color: "green",
+                  }
+                : {}
+            }
+          >
             About us
-          </Link>
+          </NavLink>
         </div>
       </>
     );
