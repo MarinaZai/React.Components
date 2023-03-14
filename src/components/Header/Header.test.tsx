@@ -2,7 +2,6 @@ import { render } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import { Header } from ".";
 
-
 describe("Header Component", () => {
   test("renders main page link", () => {
     const { getByText } = render(

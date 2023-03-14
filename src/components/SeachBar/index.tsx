@@ -1,16 +1,18 @@
 import React from "react";
 import styles from "./styles.module.css";
 
-export class SearchBar extends React.Component {
+interface SearchBarProps {
+  onSearch: (input: string) => void;
+}
+
+export class SearchBar extends React.Component<SearchBarProps> {
   state = {
     searchInput: "",
   };
 
   componentDidMount() {
     const searchInput = localStorage.getItem("searchInput");
-    if (searchInput) {
-      this.setState({ searchInput });
-    }
+    this.setState({ searchInput });
   }
 
   componentWillUnmount() {
@@ -20,6 +22,7 @@ export class SearchBar extends React.Component {
   handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const input = event.target.value;
     this.setState({ searchInput: input });
+    this.props.onSearch(input);
   };
 
   render() {
