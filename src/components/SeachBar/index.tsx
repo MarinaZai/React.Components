@@ -12,7 +12,9 @@ export class SearchBar extends React.Component<SearchBarProps> {
 
   componentDidMount() {
     const searchInput = localStorage.getItem("searchInput");
-    this.setState({ searchInput });
+    if (searchInput) {
+      this.setState({ searchInput });
+    }
   }
 
   componentWillUnmount() {
