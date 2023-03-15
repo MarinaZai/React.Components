@@ -11,7 +11,12 @@
   min-width: 220px;
 }
 .cardDescription {
-    display: flex;
-    flex-direction: column;
-    gap: 7px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.cardImg {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }

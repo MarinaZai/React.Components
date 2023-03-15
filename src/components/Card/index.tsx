@@ -1,6 +1,7 @@
 import styles from "./styles.module.css";
 import phone from "../../assets/phone.png";
 import emailIcon from "../../assets/emailIcon.png";
+import heart from "../../assets/heart.png";
 import React from "react";
 
 type CardPropsType = {
@@ -21,13 +22,16 @@ export class Card extends React.Component<CardPropsType> {
           <span>Size: {this.props.size}</span>
           <span>Price: {this.props.price}</span>
         </div>
-        <div>
-          <a href={`tel:${this.props.tel}`}>
-            <img src={phone} alt="tel" />
-          </a>
-          <a href={`mailto:${this.props.email}`}>
-            <img src={emailIcon} alt="email" />
-          </a>
+        <div className={styles.cardImg}>
+          <div>
+            <a href={`tel:${this.props.tel}`}>
+              <img src={phone} alt="tel" />
+            </a>
+            <a href={`mailto:${this.props.email}`}>
+              <img src={emailIcon} alt="email" />
+            </a>
+          </div>
+          <img src={heart} alt="heart" />
         </div>
       </div>
     );
