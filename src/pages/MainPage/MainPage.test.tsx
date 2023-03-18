@@ -1,6 +1,5 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
-import { sneakers } from "../../static/data";
 import { MainPage } from ".";
 
 describe("MainPage", () => {
